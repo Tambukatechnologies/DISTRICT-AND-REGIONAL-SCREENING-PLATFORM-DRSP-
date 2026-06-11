@@ -1,0 +1,217 @@
+<div class="container">
+
+<div class="topbar">
+
+  <div>
+    <h1>🏆 Uganda School Sports Digital Verification System</h1>
+
+    <p>
+      
+     BIOMETRIC VERIFICATION • ELIGIBILITY SCREENING • ANTI-IMPERSONATION PLATFORM
+    </p>
+    <p id="liveClock"></p>
+  </div>
+
+</div>
+<div id="loginBox">
+  <h2>Login</h2>
+
+  <input type="email" id="email" placeholder="Email">
+
+  <input type="password" id="password" placeholder="Password">
+
+  <input type="button" value="Login" onclick="login()">
+</div>
+
+<div id="coachDashboard" style="display:none">
+  
+<h2>Team Registration Portal</h2>
+  <button onclick="backToLogin()">Back</button>
+
+<button onclick="showPlayerForm()">Register Player</button>
+  <button onclick="showDistrict()">
+District Sports Officer Dashboard
+</button>
+
+<div id="playerForm" style="display:none">
+
+<input id="playerName" placeholder="Full Name">
+
+<input id="school" placeholder="School">
+
+<input id="district" placeholder="District">
+
+<input id="sport" placeholder="Sport">
+
+<input id="lin" placeholder="LIN Number">
+  
+  <input
+  type="text"
+  id="indexNumber"
+  placeholder="Index Number"
+>
+
+<input
+  type="text"
+  id="passSlipNumber"
+  placeholder="Pass Slip Number"
+>
+<input
+  type="date"
+  id="dateOfBirth"     
+<label>Category</label>
+  
+<select id="category">
+  <option value="">Select Category</option>
+  <option value="U16">U16</option>
+  <option value="U17">U17</option>
+  <option value="U18">U18</option>
+  <option value="U19">U19</option>
+  <option value="U20">U20</option>
+</select>
+  
+  <h3>Profile Photo</h3>
+
+<input
+  type="file"
+  id="profilePhoto"
+  accept="image/*"
+>
+
+<br><br>
+
+<img
+  id="profilePreview"
+  width="150"
+  height="150"
+  style="border:1px solid #ccc;"
+>
+
+<br><br>
+
+<br><br>
+<button onclick="savePlayer()">Save Player</button>
+</div>
+
+</div>
+<div id="districtDashboard" style="display:none">
+  
+ <h2>District Verification Centre</h2>
+  
+  <button onclick="backToCoach()">Back</button>
+  
+<button onclick="showRegional()">Regional Sports Officer</button>
+  
+
+  <table border="1" width="100%">
+   <thead>
+<tr>
+<th>Player</th>
+<th>School</th>
+<th>District</th>
+<th>Sport</th>
+<th>LIN</th>
+<th>Index No</th>
+<th>Pass Slip</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+    <tbody id="playersTable"></tbody>
+
+  </table>
+
+</div>
+<div id="regionalDashboard" style="display:none">
+
+ <h2>Regional Screening Centre</h2>
+  
+  <button onclick="backToDistrict()">Back</button>
+  
+  <button onclick="showSiteAdmin()">Screening officer</button>
+
+  <table border="1" width="100%">
+    <thead>
+  <tr>
+    <th>Player</th>
+    <th>School</th>
+    <th>District</th>
+    <th>Sport</th>
+    <th>LIN</th>
+    <th>Index No</th>
+    <th>Pass Slip</th>
+    <th>Status</th>
+  </tr>
+</thead>
+    <tbody id="regionalPlayersTable"></tbody>
+
+  </table>
+
+</div>
+<div id="siteAdminDashboard" style="display:none">
+
+ <h2>Screening Officer</h2>
+
+<button onclick="backToRegional()">
+⬅ Back to Regional
+</button>
+  <div class="verification-box">
+
+    <h2>Live Statistics</h2>
+
+    <p>Total Players: <span id="statTotal">0</span></p>
+    <p>Approved: <span id="statApproved">0</span></p>
+    <p>Rejected: <span id="statRejected">0</span></p>
+    <p>Pending: <span id="statPending">0</span></p>
+
+  </div>
+
+  <div id="matchDayScreen">
+    
+    <h2>Match Day Screening</h2>
+
+    <input
+      type="text"
+      id="searchStudent"
+      placeholder="Enter Index Number or Pass Slip Number"
+    >
+
+    <button onclick="verifyStudent()">
+      Find Student
+    </button>
+
+    <br><br>
+
+    <div id="verificationResult"></div>
+<div id="qrcode"></div>
+    <hr>
+ 
+  </div>
+ 
+ <table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>School</th>
+      <th>District</th>
+      <th>Sport</th>
+      <th>LIN</th>
+      <th>Index No</th>
+      <th>Pass Slip</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody id="sitePlayersTable"></tbody>
+
+</table>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="script.js"></script>
